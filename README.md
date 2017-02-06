@@ -101,8 +101,9 @@ Botmaster and other libraries like express also use debug. You can explore them 
 export DEBUG='app:*,botmaster:*'
 ```
 
-Finally, copy the `start.js` and `main.js` from github here: (TODO)
-These two in conjunction restart the server on any changes to your source code (except start.js).
+Finally, copy the `start.js` and `main.js` from github here: https://github.com/botmasterai/conversation-enrich-fulfill-example/tree/part-one
+
+These two in conjunction restart the server on any changes to your source code (except start.js). I will not go over in-depth what they do because they are a bit technical and not so useful for understanding botmaster.
 
 All that remains is to add your start script in package.json:
 
@@ -118,6 +119,4 @@ Now run
 npm run
 ```
 
-```bash
-botmaster-fulfill botmaster-fulfill-actions botmaster-enrich botmaster-session-ware  watson-developer-cloud request-promise -S
-```
+Now type in hi in messenger to your bot and get your Hello world!
