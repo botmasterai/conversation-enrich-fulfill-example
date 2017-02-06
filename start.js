@@ -18,6 +18,9 @@ const setupTunnel = env => {
     tunnel.on('close', () => {
         setupTunnel();
     });
+    tunnel.on('error', () => {
+        setupTunnel();
+    });
 };
 
 const setupNodemon = () => {
