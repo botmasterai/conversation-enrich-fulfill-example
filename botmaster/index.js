@@ -11,7 +11,17 @@ const setupBotmaster = env => {
 
     botmaster.on('update', (bot, update) => {
         debug(`got an update on ${bot.type}: ${update.message.text}`);
-        bot.reply(update, 'Hello world!');
+        bot.reply(update, 'Hello world!')
+            .then( () => {
+                debug('sent reply');
+            })
+            .catch( error => {
+                debug(error);
+            });
+    });
+
+    botmaster.on('error', error => {
+        debug(error);
     });
 
     debug('botmaster setup');

@@ -5,21 +5,32 @@ debug(`using build ${BUILD}`);
 
 const env = require(`./environments/${BUILD}`);
 
-const setupTunnel = env => {
+const setupTunnel = (env, attempt = 0) => {
     const localtunnel = require('localtunnel');
+
+    if (attempt)
+        debug('restarting tunnel');
+
+    const restartTunnel = () => {
+        attempt += 1;
+        debug('tunnel down');
+        setTimeout(() => setupTunnel(env, attempt), 200 * attempt);
+    };
+
     const tunnel = localtunnel(env.port, {subdomain: env.subdomain}, (err, tunnel) => {
         if (err) {
-            debug(err);
-            setTimeout(setupTunnel, 1000);
-        } else
+            restartTunnel();
+        } else {
+            attempt = 0;
             debug(`URL is ${tunnel.url}`);
+        }
     });
 
     tunnel.on('close', () => {
-        setupTunnel();
+        restartTunnel();
     });
     tunnel.on('error', () => {
-        setupTunnel();
+        restartTunnel();
     });
 };
 
