@@ -1,0 +1,38 @@
+{
+  "name": "conversation-enrich-fulfill-example",
+  "version": "0.0.1",
+  "description": "an example of using ibm conversation with botmaster enrich and fulfill",
+  "main": "start.js",
+  "dependencies": {
+    "botmaster": "^2.2.6",
+    "botmaster-session-ware": "0.0.3",
+    "secrets-encrypt": "0.0.8"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "localtunnel": "^1.8.2",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./start.js",
+    "encrypt": "secrets-encrypt",
+    "decrypt": "secrets-encrypt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/botmasterai/conversation-enrich-fulfill-example.git"
+  },
+  "keywords": [
+    "ibm",
+    "conversation",
+    "botmaster",
+    "chatbots"
+  ],
+  "author": "Jonathan R Wickens",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/botmasterai/conversation-enrich-fulfill-example/issues"
+  },
+  "homepage": "https://github.com/botmasterai/conversation-enrich-fulfill-example#readme"
+}
